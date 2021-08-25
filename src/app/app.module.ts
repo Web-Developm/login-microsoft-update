@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { IPublicClientApplication, PublicClientApplication, InteractionType, BrowserCacheLocation, LogLevel } from '@azure/msal-browser';
 import { MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 export function loggerCallback(loglevel: LogLevel, message: string) {
   console.log(message);
@@ -21,7 +23,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     auth: {
       clientId: '303f2497-0577-4647-be24-f1abe5a0e7c4',
       redirectUri: 'http://localhost:4200',
-      postLogoutRedirectUri: 'http://localhost:4200'
+      postLogoutRedirectUri: 'http://localhost:4200',
+      authority: 'https://login.microsoftonline.com/common/'
     },
 
     cache: {
@@ -42,10 +45,10 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
 
-  protectedResourceMap.set('https://graph.microsoft-ppe.com/v1.0/me', ['user.read']);
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
 
   return {
-    interactionType: InteractionType.Redirect,
+    interactionType: InteractionType.Popup,
     protectedResourceMap
   }
 }
@@ -53,7 +56,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
 
 export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return {
-    interactionType: InteractionType.Redirect,
+    interactionType: InteractionType.Popup,
     authRequest: {
       scopes: ['user.read']
     },
@@ -63,7 +66,9 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+.background{
+    background-color:#ffff;
+    height:90vh;
+}
+
+.card{
+    width:300px;
+    margin-left: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 40px  rgba(0,0,0,0.1);
+}
+
+img{
+    width:200px;
+    height:200px;
+    padding:5px;
+    border-style: solid;
+    border-color: #C9CCD5;
+    border-width: 0.2px;
+}
+
+.content-card{
+
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
+}
+
+p{
+    font-size: 15px;
+    font-weight:400;
+}
+
+.content-text{
+    padding: 10px;
+    text-align: justify;
+    margin:10px;
+    line-height: 1.8rem;
+    word-spacing: 2px;
+}

@@ -3,17 +3,21 @@
 
     <div class="toolbar-spacer"></div>
 
-    <button mat-raised-button [mat-menu-trigger-for]="loginMenu" *ngIf="!loginDisplay">Login</button>
+    <a mat-button [routerLink]="['profile']" *ngIf="loginDisplay" class="profile">Profile</a>
 
-    <mat-menu #loginMenu="matMenu">
-        <!--<button mat-menu-item (click)="loginRedirect()">Login Using redirect</button>-->
-        <button mat-menu-item (click)="loginPopup()">Login using popup</button>
-    </mat-menu>
+    <button mat-raised-button  (click)="loginPopup()" *ngIf="!loginDisplay">Login</button>
 
-    <button mat-raised-button [mat-menu-trigger-for]="logoutMenu" *ngIf="loginDisplay">Logout</button>
+    <!--<mat-menu #loginMenu="matMenu">
+        <button mat-menu-item (click)="loginRedirect()">Login Using redirect</button>
+        <button mat-menu-item >Login</button>
+    </mat-menu>-->
 
-    <mat-menu #logoutMenu="matMenu">
-        <!--<button mat-menu-item (click)="logout()">Logout using Redirect</button>-->
+    <button mat-raised-button (click)="logout(true)" *ngIf="loginDisplay">Logout</button>
+
+    <!--<mat-menu #logoutMenu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout using Redirect</button>
         <button mat-menu-item (click)="logout(true)">Logout using popup</button>
-    </mat-menu>
+    </mat-menu>-->
+    
 </mat-toolbar>
+<router-outlet></router-outlet>

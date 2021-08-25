@@ -48,6 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   loginPopup() {
+    debugger;
     if (this.guard.authRequest) {
       this.authservice.loginPopup({ ...this.guard.authRequest } as PopupRequest)
         .subscribe((response: AuthenticationResult) => {
@@ -62,6 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   logout(popup?: boolean) {
+    debugger;
     if (popup) {
       this.authservice.logoutPopup({
         mainWindowRedirectUri: "/"
@@ -69,12 +71,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     else {
-      this.authservice.logoutRedirect();
+      this.authservice.logoutPopup();
     }
   }
 
 
   ngOnDestroy() {
+    debugger;
     this._destroying$.next(undefined);
     this._destroying$.complete();
   }
