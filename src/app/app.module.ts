@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material/material.module';
 
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { IPublicClientApplication, PublicClientApplication, InteractionType, BrowserCacheLocation, LogLevel } from '@azure/msal-browser';
 import { MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
@@ -45,7 +45,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
 
-  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
+  protectedResourceMap.set('https://graph.microsoft.com/beta/me', ['user.read']);
 
   return {
     interactionType: InteractionType.Popup,

@@ -4,7 +4,7 @@
         <div class="col-sm-3">
             <mat-card class="card">
 
-                <img mat-card-image src="/assets/avatar6.png" class="rounded-circle">
+                <img mat-card-image [src]="image" class="rounded-circle">
                 <mat-card-header>
                     <mat-card-title class="text-center">{{profile?.givenName}}</mat-card-title>
                     <mat-card-subtitle>{{profile?.jobTitle}}</mat-card-subtitle>
