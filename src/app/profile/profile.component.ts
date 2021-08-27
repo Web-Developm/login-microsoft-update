@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from '../core/service/data.service';
 import { filter, takeUntil, map } from 'rxjs/operators';
 import { DomSanitizer } from "@angular/platform-browser";
@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.profileData();
+    this.callProfile();
     this.profile_photo();
 
   }
@@ -58,9 +58,9 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-  profileData = (): any => {
+  /*profileData = (): any => {
     debugger;
-    this.http.get('https://graph.microsoft.com/beta/me').toPromise().then(
+    this.http.get('https://graph.microsoft.com/v1.0/me').toPromise().then(
       data => {
         this.profile = data;
         console.log(data);
@@ -68,7 +68,7 @@ export class ProfileComponent implements OnInit {
     ).catch((err) => {
       this.profile = null;
     })
-  }
+  }*/
 
   /*profile_image = (): any => {
     this.http.get('https://graph.microsoft.com/v1.0/me/photo/$value').toPromise().then(
@@ -89,8 +89,8 @@ export class ProfileComponent implements OnInit {
 
         let reader = new FileReader();
         reader.readAsDataURL(data);
-        reader.onload=(event)=>{
-          this.image=reader.result;
+        reader.onload = (event) => {
+          this.image = reader.result;
         }
       }
     )
