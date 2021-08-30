@@ -1,46 +1,52 @@
-<div class="container-fluid pt-4 background">
+<div class="container-fluid background">
 
-    <div class="row">
-        <div class="col-sm-3">
-            <mat-card class="card">
+    <div class="container-fluid pt-4 data">
+        <mat-card class="card">
+            <div class="row">
+                <div class="col-sm-3 profile">
+                    <img mat-card-image [src]=image class="rounded-circle">
+                    <mat-card-header>
+                        <mat-card-title class="text-center">{{profile?.displayName}}</mat-card-title>
+                        <mat-card-subtitle class="text-center">{{profile?.jobTitle}}</mat-card-subtitle>
+                    </mat-card-header>
+                </div>
 
-                <img mat-card-image [src]="image" class="rounded-circle">
-                <mat-card-header>
-                    <mat-card-title class="text-center">{{profile?.givenName}}</mat-card-title>
-                    <mat-card-subtitle>{{profile?.jobTitle}}</mat-card-subtitle>
-                </mat-card-header>
+                <div class="col-sm-6">
+                    <mat-tab-group mat-align-tabs="start" class="content">
+                        <mat-tab label="ABOUT ME">
+                            <p class="content-text">Hi I'm <strong>{{profile?.displayName}}</strong>, has been the
+                                industry's standard
+                                dummy
+                                text ever since the 1500s, when an
+                                unknown printer took a galley of type. Donec pede justo, fringilla vel, aliquet nec,
+                                vulputate eget,
+                                arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum
+                                felis eu
+                                pede
+                                mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean
+                                vulputate
+                                eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                            </p>
+                        </mat-tab>
 
-                <mat-card-content>
-                    <p><strong>Full Name:</strong> {{profile?.displayName}}</p>
-                    <p><strong>Mobile:</strong> {{profile?.mobilePhone}}</p>
-                    <p><strong>Email:</strong> {{profile?.userPrincipalName}}</p>
-                    <p><strong>Location:</strong> {{profile?.officeLocation}}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
+                        <mat-tab label="CONTACT DETAILS" class="contact">
 
-        <div class="col-sm-9">
-            <mat-card class="content-card">
-                <mat-tab-group mat-align-tabs="start" class="content">
-                    <mat-tab label="ABOUT ME">
-                        <p class="content-text">Hi I'm {{profile?.displayName}}, has been the industry's standard dummy
-                            text ever since the 1500s, when an
-                            unknown printer took a galley of type. Donec pede justo, fringilla vel, aliquet nec,
-                            vulputate eget,
-                            arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu
-                            pede
-                            mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean
-                            vulputate
-                            eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                    </mat-tab>
-                    <mat-tab label="GALLERY">Images</mat-tab>
-                </mat-tab-group>
-            </mat-card>
+                            <p class="content-text"><strong>Full Name:</strong> {{profile?.displayName}}</p>
+                            <p class="content-text"><strong>Mobile: </strong> <a
+                                    href="tel:{{profile?.mobilePhone}}">{{profile?.mobilePhone}}</a> </p>
+                            <p class="content-text"><strong>Email: </strong> <a
+                                    href="mailto:{{profile?.userPrincipalName}}">{{profile?.userPrincipalName}}</a></p>
+                            <p class="content-text"><strong>Location:</strong> {{profile?.officeLocation}}</p>
 
-        </div>
+                        </mat-tab>
+
+                        <mat-tab label="GALLAERY">
+                            <img [src]="image">
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </mat-card>
     </div>
-
-
-
 
 </div>

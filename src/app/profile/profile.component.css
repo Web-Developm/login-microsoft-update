@@ -1,18 +1,19 @@
 .background{
-    background-color:#ffff;
+   
     height:90vh;
+    margin-top: 0px;
 }
 
 .card{
-    width:300px;
-    margin-left: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top:100px;
     box-shadow: 0px 0px 40px  rgba(0,0,0,0.1);
 }
 
-img{
+.profile{
+    margin-left:120px;
+}
+
+.rounded-circle{
     width:200px;
     height:200px;
     padding:5px;
@@ -21,15 +22,11 @@ img{
     border-width: 0.2px;
 }
 
-.content-card{
-
-    box-shadow: 0px 0px 40px rgba(0,0,0,0.1);
-}
-
 p{
     font-size: 15px;
-    font-weight:400;
 }
+
+
 
 .content-text{
     padding: 10px;
@@ -38,3 +35,18 @@ p{
     line-height: 1.8rem;
     word-spacing: 2px;
 }
+
+img{
+    margin-top:20px;
+    width:200px;
+    height:200px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+

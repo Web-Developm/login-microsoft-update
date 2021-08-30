@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../core/service/data.service';
 import { filter, takeUntil, map } from 'rxjs/operators';
-import { DomSanitizer } from "@angular/platform-browser";
 
 
 const url = 'https://graph.microsoft.com/v1.0/me';
@@ -38,7 +37,9 @@ export class ProfileComponent implements OnInit {
 
   image: any;
 
-  constructor(private http: HttpClient, private service: DataService) {
+
+
+  constructor(private http: HttpClient, private service: DataService,) {
 
   }
 
@@ -71,10 +72,17 @@ export class ProfileComponent implements OnInit {
   }*/
 
   /*profile_image = (): any => {
-    this.http.get('https://graph.microsoft.com/v1.0/me/photo/$value').toPromise().then(
+    this.http.get('https://graph.microsoft.com/v1.0/me/photo/$value', {responseType:'blob'}).toPromise().then(
       data => {
         console.log(data);
         this.image = data;
+
+        let reader= new FileReader();
+        reader.onload=(e)=>{
+          this.image=reader.result;
+        }
+
+        reader.readAsDataURL(data);
       }
     ).catch(err => {
       console.log(err);
@@ -88,13 +96,25 @@ export class ProfileComponent implements OnInit {
         console.log("Image", data);
 
         let reader = new FileReader();
-        reader.readAsDataURL(data);
-        reader.onload = (event) => {
+
+        reader.onload = (e) => {
+          let url = reader.result;
           this.image = reader.result;
         }
+
+        /*reader.addEventListener("load", ()=>{
+          this.image=reader.result;
+        })*/
+
+        reader.readAsDataURL(data);
+
+
       }
+
     )
   }
+
+
 
 
 

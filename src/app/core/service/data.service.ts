@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable,  } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, } from 'rxjs';
 
 
 @Injectable({
@@ -16,18 +16,19 @@ export class DataService {
 
 
   call(): Observable<any> {
-    return this.http.get("https://graph.microsoft.com/beta/me");
+    return this.http.get("https://graph.microsoft.com/v1.0/me");
   }
 
-  token:any = "eyJ0eXAiOiJKV1QiLCJub25jZSI6IjVCZ1JkYWxuSHZhdlI2eURrM2xnVk9MVEVSd0lpTmI4UW9LZDBrMU1JUk0iLCJhbGciOiJSUzI1NiIsIng1dCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyIsImtpZCI6Im5PbzNaRHJPRFhFSzFqS1doWHNsSFJfS1hFZyJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC84ZjZiZDk4Mi05MmMzLTRkZTAtOTg1ZC0wZTI4N2M1NWUzNzkvIiwiaWF0IjoxNjI5OTA4OTY5LCJuYmYiOjE2Mjk5MDg5NjksImV4cCI6MTYyOTkxMjg2OSwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkUyWmdZT0JZOVAwc3I5UjBJOTdsY3ovM2J2Sll1dWhkOXdUNXZqbGRPdjFHVWZ3NWY1a0IiLCJhbXIiOlsicHdkIl0sImFwcF9kaXNwbGF5bmFtZSI6IkdyYXBoIEV4cGxvcmVyIiwiYXBwaWQiOiJkZThiYzhiNS1kOWY5LTQ4YjEtYThhZC1iNzQ4ZGE3MjUwNjQiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IktyaXNobmEiLCJnaXZlbl9uYW1lIjoiSmFzdGkiLCJpZHR5cCI6InVzZXIiLCJpcGFkZHIiOiI0OS4zNy4xNTguOTAiLCJuYW1lIjoiSmFzdGkgIEtyaXNobmEiLCJvaWQiOiJlNDgyNDU3Mi1iYWU3LTQ1MDYtYjljMC00N2NmMGMwNzcwMjAiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzIwMDE2QTEyMTQyRSIsInJoIjoiMC5BVjhBZ3Rscmo4T1M0RTJZWFE0b2ZGWGplYlhJaTk3NTJiRklxSzIzU05weVVHUmZBRjguIiwic2NwIjoib3BlbmlkIFByZXNlbmNlLlJlYWQgcHJvZmlsZSBVc2VyLlJlYWQgZW1haWwiLCJzaWduaW5fc3RhdGUiOlsia21zaSJdLCJzdWIiOiJyOWpnSGxCY19obEkzZHpTWGI1Wk5rVTc5Sm1KSVkxMm5ET05iWWdZVkZZIiwidGVuYW50X3JlZ2lvbl9zY29wZSI6IkVVIiwidGlkIjoiOGY2YmQ5ODItOTJjMy00ZGUwLTk4NWQtMGUyODdjNTVlMzc5IiwidW5pcXVlX25hbWUiOiJqa3Jpc2huYUBhcmlxdC5jb20iLCJ1cG4iOiJqa3Jpc2huYUBhcmlxdC5jb20iLCJ1dGkiOiJUMEFFVVJwRkYweXpfQ1BMYWpBQkFBIiwidmVyIjoiMS4wIiwid2lkcyI6WyJiNzlmYmY0ZC0zZWY5LTQ2ODktODE0My03NmIxOTRlODU1MDkiXSwieG1zX3N0Ijp7InN1YiI6IlBaWHNqZnRHMzZTYVVKaWFOeExWZXByUDJUS3ljSWk2eFRXRkYtTXd5OG8ifSwieG1zX3RjZHQiOjE1OTI4MDc2NzJ9.Nnb2miNm1icVuhTdgZ66VhGmCgmbhf5U0sfcwJq6Z6NjQVJydQ8OBl4_C4xxejoxXPQH1vVnyK4oa-6v45PfuoF6mr-iG7-hMaeLanUWs8171PLD0lyPS2tVB4ft_HtyJSGxM51OIziA7DQ5eMnIzQJ7ytxrA4yH5RJUaAg2SYkrqI-GNE4_E97ivWapx0BPL6HgafrptanGR3bO0BmvTgu7brBL8colVA1R34jIjMJIAPeTZoZevT6iVpMlZaD0f2Xst53g4GPn9oiDY_59QdRBKO6FB4CIC4QQzeMcFMQ_3DR351UWgieaesV62i7jUfwdBwsS2pdNEYImwWXo0A";
+  token: any = "EwAoA8l6BAAU7p9QDpi/D7xJLwsTgCg3TskyTaQAAXu71AU9f4aS4rOK5xoO/SU5HZKSXtCsDe0Pj7uSc5Ug008qTI+a9M1tBeKoTs7tHzhJNSKgk7pm5e8d3oGWXX5shyOG3cKSqgfwuNDnmmPDNDivwmi9kmKqWIC9OQRf8InpYXH7NdUYNwN+jljffvNTewdZz42VPrvqoMH7hSxiG7A1h8leOv4F3Ek/oeJX6U8nnL9nJ5pHLVuPWD0aNnTPTJD8Y4oQTp5zLhDIIfaJCaGcQperULVF7K6yX8MhHxIBwek418rKIp11om0SWBXOYSGOM0rNNN59qNiKwLNK+MPUf7ObcRBN5I5vg8jB7IMoz66jrNmT2uiWCyI8MmYDZgAACPoaZ9REyqke+AE1/x1ZX0w7OamUexKF8YGZiw+cDpT/BP1GsONnwI4a8M7HsBtDgZPRd6/Hfqlq3HE2xLuhYX8bAc1MUr0gP9KuH6HDQNlIV4KaRZWxyRo1wmKHOF5G5wTHrtxg8tnXylMc1PKOtaXIU4JJZ1l4x/7FwhPmg9M86PBPWr5zwUj2CVXC7wWlL/6M89Mlh8yXESMO3AIuAmEMKjqauPrgi9hAdI2oqnLZWCRL9gcHBida1y0DTXQhcwMv1ORrk65VFHtVgYAegrxu3NDoJiDyVaPZxDwTYRGjPII3va8GALAMVy5xou2ikzRvJjW7Gm3XoaqJCTCExN4m5i/Dqc81Gr4uT7OaeypYTUjnwCh7aMhsOTDJehefzjXhlkn//2eik+NivKx/BTJBEdT6MR97Wh/ns/VcK7QTmbjwbU2cwLngT7Ylq+uzhx54R9JMaSLhnw+/nIrcVkG77Hi3neShKeZmnl5DC9PuwIbtNvVge3Q+V0ws2zsL3z7ndz4tTMYFdvR/XbrnbEErTDLWrV6Lc3JHQMs0bYUyTBg5dThwCiuZ1evaT6BlMMLuSCVxdBGzXTBcvGwihFzZbyNoX+52DS5x+RbIEvd6KWOpQ6Ni+1GAawHDdNUiQTQFXRxLSHfc9fh7hE4qcD7PqHGsykYj7A0XqHCjbKKgWSkcAg==";
 
 
 
   image(): Observable<any> {
     let headers = new HttpHeaders();
     headers.append('Authorization', 'Bearer' + this.token);
-    headers.append("content-type","application/json");
-    return this.http.get("https://graph.microsoft.com/beta/me/photo/$value", { responseType:'blob' as 'json',
+    headers.append("content-type", "application/json");
+    return this.http.get("https://graph.microsoft.com/v1.0/me/photo/$value", {
+      responseType: 'blob',
       headers: headers
     });
   }

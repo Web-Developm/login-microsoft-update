@@ -22,7 +22,7 @@ export function loggerCallback(loglevel: LogLevel, message: string) {
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      clientId: '303f2497-0577-4647-be24-f1abe5a0e7c4',
+      clientId: '7650dd50-d077-4f27-a147-850bf39f7596',
       redirectUri: 'http://localhost:4200',
       postLogoutRedirectUri: 'http://localhost:4200',
       authority: 'https://login.microsoftonline.com/common/'
@@ -46,7 +46,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
 
-  protectedResourceMap.set('https://graph.microsoft.com/beta/me', ['user.read']);
+  protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
 
   return {
     interactionType: InteractionType.Popup,
